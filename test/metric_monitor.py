@@ -118,10 +118,10 @@ class Monitor():
                 plt.title('Original data histogram')
                 plt.hist(y_original, density=True)
 
-                plt.savefig('temp.png')
+                plt.savefig('media/test_example.png')
 
                 # deal with plot image
-                plot_im = cv2.imread('temp.png')
+                plot_im = cv2.imread('media/test_example.png')
 
                 plot_im = cv2.putText(
                     plot_im,
