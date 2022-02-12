@@ -4,7 +4,7 @@
 ### SW models
 **GK01** is for computing quantiles over all arrived data. Sometimes quantiles of the most recent N elements in a stream are required. [Lin et al.](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.72.6192&rep=rep1&type=pdf) expanded **GK01** and proposed two algorithms for such case: **SW model** and **n-of-N model**.
 
-**SW model** is for answering quantiles over the most recent $\N$ elements instantaneously, where $\N$ is predefined. The model puts the most recent $\N$ elements into several buckets in their arriving order. Rather than original elements, each buckets stores a *Summary* covering $\frac{\epsilon\N}{2}$ successive elements.
+**SW model** is for answering quantiles over the most recent $`\N`$ elements instantaneously, where $\N$ is predefined. The model puts the most recent $\N$ elements into several buckets in their arriving order. Rather than original elements, each buckets stores a *Summary* covering $\frac{\epsilon\N}{2}$ successive elements.
 
 The distinction of **n-of-N model** is that it answers quantile queries instantaneously over the most recent $n$ elements where $n$ is any integer not larger than a predefined $\N$. It takes advantage of the **EH-partition** technique as shown in figure below.
 
