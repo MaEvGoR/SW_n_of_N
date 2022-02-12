@@ -26,5 +26,39 @@ The worst case space complexity is $O(\frac{1}{\epsilon^2}log^2(\epsilon N))$
 
 > SW model description is taken from [here](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9001104)
 
+
+## Testing
+
+To evaluate implemented algorithms, simulation system was created. It simulate normal distribution data and pass it into 3 different algorithms: SW n-of-N, GK and numpy.qunatile.
+
+During the simulation you can observe the data that goes into the systems and metrics values (memory consumption, add time, query time, query error based on numpy data)
+
+![Simple window](media/test_window.png)
+
+After the simulation, test system generate data report, the stores metrics for all algorithms. By calling `test/analyze_report.py` it is possible to plot all metrics along with its moving average.
+
+### Add time
+
+![Add time metric](media/add_time.png)
+
+Numpy algorithm, obviously, is the fastest one, because smart people implemented it, not me. 
+On the other hand, GK is much more faster than SW method.
+
+The difference is that SW algorithm use EH-partition technique to store only $n$ last important values. Moreover, SW use GK for each bucket. 
+
+### Query time
+
+![Query time metric](media/query_time.png)
+
+As we can see, SW and Numpy spend almost constant time for query and GK time is always growing. This happens, because number of points, that GK should process is also always growing. 
+
+
+At start, GK query time is shorter than for SW, but later SW beats it.
+
+### Query error
+
+![Query error metric](media/query_errors.png)
+
+Error for SW is much more smaller than for GK, because SW only observes $n$ last point, so this behaviour was predictable. Good for you, SW n-of-N!
 ## Contacts:
 * [Telegram](https://t.me/ma_evgor)
