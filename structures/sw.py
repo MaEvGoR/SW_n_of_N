@@ -104,7 +104,7 @@ class SW_n_of_N():
                 # add e into Sb by GK-algorithm for epsilon/2 - approximation and Nb := Nb + 1
                 bucket.add(point)
 
-    def query(self, q: float):
+    def query(self, q: float, *args, **kwargs):
         """Retrieve φ-quantile
 
         :param q: φ-quantile
